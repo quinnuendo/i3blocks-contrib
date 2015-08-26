@@ -18,6 +18,10 @@ See: https://github.com/acrisci/playerctl
 If you leave the instance empty it will try to find an
 active player used on it's own.
 
+Clicking on the block area with left, middle and right click
+will cause the player used to pause, jump to previous and
+next (can be customized in the script).
+
 ``` ini
 [mediaplayer]
 command=./mediaplayer
