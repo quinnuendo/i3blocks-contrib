@@ -101,6 +101,23 @@ sub playerctl {
     push(@metadata, $title) if $title;
 
     print(join(" - ", @metadata)) if @metadata;
+
+    print("\n");
+
+    #we need the 'short' version of the string
+    print(join(" - ", @metadata)) if @metadata;
+
+    print("\n");
+
+    #change color depending on status
+    #colors are hardcoded for now
+    $status = qx(playerctl $player_arg status);
+    if ($status =~ "Playing") {
+	print("#11ee66");
+    }else{
+	print("#888888");
+    }
+
 }
 
 if ($player_arg eq '' or $player_arg eq 'mpd') {
