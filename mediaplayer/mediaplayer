@@ -109,6 +109,9 @@ sub playerctl {
     print("\n");
 
     #we need the 'short' version of the string
+    #trim the data
+    @metadata = map {substr $_, 0, 12} @metadata;
+
     print(join(" - ", @metadata)) if @metadata;
 
     print("\n");
