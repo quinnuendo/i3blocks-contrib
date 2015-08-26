@@ -2,7 +2,8 @@
 
 Generic media player support
 
-This displays "ARTIST - SONG" if music is playing.
+This displays "ARTIST - SONG [- ALBUM]" if music is playing
+(album is currently displayed only for MPRIS).
 Supported players are:
 - spotify, vlc, audacious, xmms2, mplayer and others that
 use MPRIS DBus Interface Specification
