@@ -102,19 +102,27 @@ sub playerctl {
     push(@metadata, $title) if $title;
 
     # more data about currently playing
-    $title = qx(playerctl $player_arg metadata album);
-    push(@metadata, $title) if $title;
+    $album = qx(playerctl $player_arg metadata album);
+    push(@metadata, $album) if $album;
 
-    print(join(" - ", @metadata)) if @metadata;
+    #we need the 'short' version of the string
+    #trim the data
+    my $out = join(" - ", @metadata);
+    
+    $out =join(" - ", map {substr $_, 0, 25} @metadata) if (length($out)>70);
+    
+    print($out) if @metadata;
 
     print("\n");
 
     #we need the 'short' version of the string
     #trim the data
-    @metadata = map {substr $_, 0, 12} @metadata;
+    #@metadata = map {substr $_, 0, 12} @metadata;
 
-    print(join(" - ", @metadata)) if @metadata;
-
+    #print(join(" - ", @metadata)) if @metadata;
+    
+    #maybe just print the song title
+    print(substr($title,0,20));
     print("\n");
 
     #change color depending on status
